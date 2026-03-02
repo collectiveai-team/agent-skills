@@ -2,40 +2,59 @@
 
 This repository has two main parts:
 
-- `skills/`: packaged skill definitions for coding agents.
-- `skill-installer/`: Go TUI that installs skills into supported agents.
+- `registry/`: packaged resource definitions (skills, rules, MCP servers, subagents, profiles) for coding agents.
+- `installer/`: Go TUI (`agent-setup`) that installs resources into supported providers.
+
+## Resource types
+
+| Type | Marker file | Location |
+|------|-------------|----------|
+| Skill | `SKILL.md` | `registry/skills/*/` |
+| Rule | `RULE.md` | `registry/rules/*/` |
+| MCP Server | `MCP.yaml` | `registry/mcp-servers/*/` |
+| Subagent | `SUBAGENT.md` | `registry/subagents/*/` |
+| Profile | `PROFILE.yaml` | `registry/profiles/*/` |
+
+Profiles bundle multiple resources into a curated set that can be installed together.
 
 ## Add a new skill
 
-1. Create a new skill directory under `skills/` using the template script:
+1. Create a new skill directory under `registry/skills/` using the template script:
 
 ```bash
-python3 skills/skill-creator-0.1.0/scripts/init_skill.py <skill-name>-0.1.0 --path skills
+python3 registry/skills/skill-creator-0.1.0/scripts/init_skill.py <skill-name>-0.1.0 --path registry/skills
 ```
 
 2. Edit the generated `SKILL.md` and delete any unused example resources.
 3. Validate the skill (recommended):
 
 ```bash
-python3 skills/skill-creator-0.1.0/scripts/quick_validate.py skills/<skill-name>-0.1.0
+python3 registry/skills/skill-creator-0.1.0/scripts/quick_validate.py registry/skills/<skill-name>-0.1.0
 ```
 
 ## Contribute to the installer
 
-The installer lives in `skill-installer/`.
+The installer lives in `installer/`.
 
 Common tasks:
 
 - Run locally:
 
 ```bash
-cd skill-installer
-go run ./cmd/installer
+cd installer
+go run ./cmd/agent-setup
 ```
 
-- Add or fix features in the UI under `skill-installer/internal/ui/`.
-- Update agent paths in `skill-installer/internal/agents/`.
-- Update file operations in `skill-installer/internal/skills/` and `skill-installer/internal/fs/`.
+- UI logic: `installer/internal/ui/`
+- Provider definitions: `installer/internal/provider/`
+- Resource model and discovery: `installer/internal/resource/`
+- Installation adapters: `installer/internal/adapter/`
+- Orchestration: `installer/internal/installer/`
+- Filesystem helpers: `installer/internal/fs/`
+
+## Supported providers
+
+Claude Code, Cursor, Windsurf, Antigravity, Gemini, OpenCode, Codex.
 
 ## Releases
 

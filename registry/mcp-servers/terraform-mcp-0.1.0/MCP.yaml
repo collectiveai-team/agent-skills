@@ -1,0 +1,10 @@
+name: terraform-mcp
+description: Terraform MCP server for infrastructure as code
+version: 0.1.0
+servers:
+  - id: terraform
+    name: Terraform
+    command: npx
+    args: ["-y", "@hashicorp/terraform-mcp-server@latest"]
+    env:
+      TERRAFORM_WORKING_DIR: "${TERRAFORM_WORKING_DIR:-.}"

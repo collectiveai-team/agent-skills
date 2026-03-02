@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"skill-installer/internal/ui"
+	"installer/internal/ui"
 
 	tea "github.com/charmbracelet/bubbletea"
 )

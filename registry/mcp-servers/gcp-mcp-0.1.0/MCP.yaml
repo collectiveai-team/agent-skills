@@ -1,0 +1,11 @@
+name: gcp-mcp
+description: GCP MCP server suite for cloud infrastructure
+version: 0.1.0
+servers:
+  - id: gcloud
+    name: Google Cloud CLI
+    command: npx
+    args: ["-y", "@anthropic/gcloud-mcp@latest"]
+    env:
+      GOOGLE_CLOUD_PROJECT: "${GOOGLE_CLOUD_PROJECT}"
+      GOOGLE_APPLICATION_CREDENTIALS: "${GOOGLE_APPLICATION_CREDENTIALS}"
