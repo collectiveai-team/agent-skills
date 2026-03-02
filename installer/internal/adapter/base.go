@@ -18,14 +18,22 @@ const (
 	ruleStrategyDirectory
 )
 
-// mcpKeyName is the JSON key used in the config file for MCP servers.
-const mcpKeyName = "mcpServers"
+// defaultMcpKey is the default JSON key used in the config file for MCP servers.
+const defaultMcpKey = "mcpServers"
 
 // baseAdapter provides the common installation logic shared by all providers.
 type baseAdapter struct {
 	prov         provider.Provider
 	ruleFmt      ruleStrategy
 	envOverrides map[string]string
+	mcpKey       string
+}
+
+func (b *baseAdapter) getMcpKey() string {
+	if b.mcpKey != "" {
+		return b.mcpKey
+	}
+	return defaultMcpKey
 }
 
 func (b *baseAdapter) ProviderID() string { return b.prov.ID }
@@ -84,7 +92,7 @@ func (b *baseAdapter) InstallMCP(mcp resource.MCPServer, scope provider.Scope, p
 	for _, srv := range mcp.Servers {
 		servers[srv.ID] = buildMCPEntry(srv.Command, srv.Args, srv.Env, b.envOverrides)
 	}
-	res.Err = mergeJSONMCPServers(destPath, servers)
+	res.Err = mergeJSONMCPServers(destPath, b.getMcpKey(), servers)
 	return res
 }
 

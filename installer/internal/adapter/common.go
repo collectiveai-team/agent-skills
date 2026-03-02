@@ -115,9 +115,9 @@ func mergeRuleFile(dirPath, ruleID string, content []byte) error {
 // --- JSON config merging (MCP server entries) ---
 
 // mergeJSONMCPServers reads a JSON config file, merges entries into the
-// "mcpServers" key, and writes back with indentation. Creates the file if
+// specified key, and writes back with indentation. Creates the file if
 // it doesn't exist. Preserves all existing keys.
-func mergeJSONMCPServers(filePath string, servers map[string]interface{}) error {
+func mergeJSONMCPServers(filePath, mcpKeyName string, servers map[string]interface{}) error {
 	if err := os.MkdirAll(filepath.Dir(filePath), 0o755); err != nil {
 		return err
 	}
@@ -137,7 +137,7 @@ func mergeJSONMCPServers(filePath string, servers map[string]interface{}) error 
 		}
 	}
 
-	mcpServers, ok := config["mcpServers"].(map[string]interface{})
+	mcpServers, ok := config[mcpKeyName].(map[string]interface{})
 	if !ok {
 		mcpServers = make(map[string]interface{})
 	}
@@ -145,7 +145,7 @@ func mergeJSONMCPServers(filePath string, servers map[string]interface{}) error 
 	for id, entry := range servers {
 		mcpServers[id] = entry
 	}
-	config["mcpServers"] = mcpServers
+	config[mcpKeyName] = mcpServers
 
 	out, err := json.MarshalIndent(config, "", "  ")
 	if err != nil {

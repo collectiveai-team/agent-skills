@@ -114,7 +114,7 @@ func TestMergeJSONMCPServers_NewFile(t *testing.T) {
 		},
 	}
 
-	err := mergeJSONMCPServers(path, servers)
+	err := mergeJSONMCPServers(path, "mcpServers", servers)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -157,7 +157,7 @@ func TestMergeJSONMCPServers_PreserveExisting(t *testing.T) {
 		},
 	}
 
-	err := mergeJSONMCPServers(path, servers)
+	err := mergeJSONMCPServers(path, "mcpServers", servers)
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -7,5 +7,6 @@ func newOpenCode(prov provider.Provider, envOverrides map[string]string) Adapter
 		prov:         prov,
 		ruleFmt:      ruleStrategyDirectory,
 		envOverrides: envOverrides,
+		mcpKey:       "mcp",
 	}
 }
