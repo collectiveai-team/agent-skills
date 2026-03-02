@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "skills": {
+    "fastmcp": {
+      "source": "ovachiever/droid-tings",
+      "sourceType": "github",
+      "computedHash": "e945141cbe2f0a11c8f15a5dd70d51f7229babfab758041f3142cd4cd2889ea4"
+    },
+    "numba": {
+      "source": "tondevrel/scientific-agent-skills",
+      "sourceType": "github",
+      "computedHash": "48c173df4eb0e1d141a4bde94ddafa821e1c2e36a3e5e684faad99ad704b802d"
+    },
+    "python-anti-patterns": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "computedHash": "1f9a75f8f8bfb4baeced54c254f29301f2fa162b8befc92b509fd27d10f0eba6"
+    },
+    "python-best-practices": {
+      "source": "0xbigboss/claude-code",
+      "sourceType": "github",
+      "computedHash": "908129d87bc8e2e32492154ef38c319a846d8e6ad12e1ed2476d25a67b74677b"
+    },
+    "python-code-quality": {
+      "source": "laurigates/claude-plugins",
+      "sourceType": "github",
+      "computedHash": "700c42b27d3c7686a71828f65dd8b141fcd56e264905a7bd4761d11ca8bc0c37"
+    },
+    "python-code-style": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "computedHash": "35ed0c437f33462187b0a89da8e5bfe9ac259dbc8731257c5445f1a5e1229acf"
+    },
+    "python-performance-optimization": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "computedHash": "a25abb5b2d224eee9d572b09fa13937a45831c5de1560c41c3f739e6630b7380"
+    },
+    "python-resilience": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "computedHash": "2f109425df447de4618fed93808ecea89e037c07ab1d2676cf7349d0d320c885"
+    },
+    "python-testing-patterns": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "computedHash": "a2cc64d28bbda77aeac8ec634ae38102a3b8d2314f3aa802811a44281c5d7838"
+    },
+    "python-type-safety": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "computedHash": "f011d9018935ae01209f30c0a0f9d2f15f3058867baeb7a8c820bc54c8394645"
+    },
+    "rich-terminal-output": {
+      "source": "autumnsgrove/groveengine",
+      "sourceType": "github",
+      "computedHash": "9aeee81fd27b167f7747a14ac20057e74427a35c4d94595136dafbd8e0d2f40b"
+    },
+    "sc-principles": {
+      "source": "tony363/superclaude",
+      "sourceType": "github",
+      "computedHash": "88f8ac69cdab71cd03a3ce835b34144022c7d435ec871c57e87c2474d9543c95"
+    },
+    "sqlmodel": {
+      "source": "salmanferozkhan/cloud-and-fast-api",
+      "sourceType": "github",
+      "computedHash": "a5079049f071be7fadffc1c03c5c95fc62ec295c0253a56cc01c981ad2dbc154"
+    },
+    "sqlmodel-expert": {
+      "source": "bilalmk/todo_correct",
+      "sourceType": "github",
+      "computedHash": "1c1522cc9d347eb8dc6aeff240da1f2ba613f0a73e376c5a0922d770e5ce7ebf"
+    },
+    "sympy": {
+      "source": "ovachiever/droid-tings",
+      "sourceType": "github",
+      "computedHash": "6e466db5b5fd7b01f7b3f6d704c423f3771d4b4e01030e7b618363b0bb29847e"
+    },
+    "uv-package-manager": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "computedHash": "c12c51350e6a7a8d35bbbaee138765b4f7d317a3046ee5e7024b8985bb6f8db9"
+    },
+    "vercel-react-best-practices": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "computedHash": "4365be772fd3b41994a72ad478472c6d680678e7f3859860ab010e9c46e48ee0"
+    }
+  }
+}
