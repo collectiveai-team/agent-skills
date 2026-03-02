@@ -747,7 +747,7 @@ func repoURL() string {
 }
 
 func cloneRepo(url string, dest string) error {
-	cmd := exec.Command("git", "clone", "--depth", "1", url, dest)
+	cmd := exec.Command("git", "clone", "--depth", "1", "--branch", "feat/profiles", url, dest)
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		return fmt.Errorf("git clone failed: %s", strings.TrimSpace(string(output)))

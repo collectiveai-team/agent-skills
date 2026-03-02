@@ -56,6 +56,46 @@ go run ./cmd/agent-setup
 
 Claude Code, Cursor, Windsurf, Antigravity, Gemini, OpenCode, Codex.
 
-## Releases
+## Releases and Installation
+
+You can download the latest pre-compiled binaries from the [GitHub Releases page](https://github.com/collectiveai-team/agent-skills/releases/latest).
 
 Tag pushes like `v0.1.0` trigger GitHub Actions to build binaries and attach them to the release.
+
+### macOS (Apple Silicon)
+1. Download `agent-setup-darwin-arm64`.
+2. Make it executable and clear the macOS quarantine attribute (to bypass the "malware" warning):
+   ```bash
+   chmod +x agent-setup-darwin-arm64
+   xattr -c agent-setup-darwin-arm64
+   ```
+3. (Optional) Move to a directory in your PATH to run globally:
+   ```bash
+   sudo mv agent-setup-darwin-arm64 /usr/local/bin/agent-setup
+   ```
+4. Run the installer:
+   ```bash
+   agent-setup
+   ```
+
+### Linux (amd64)
+1. Download `agent-setup-linux-amd64`.
+2. Make it executable:
+   ```bash
+   chmod +x agent-setup-linux-amd64
+   ```
+3. (Optional) Move to a directory in your PATH to run globally:
+   ```bash
+   sudo mv agent-setup-linux-amd64 /usr/local/bin/agent-setup
+   ```
+4. Run the installer:
+   ```bash
+   agent-setup
+   ```
+
+### Windows (amd64)
+1. Download `agent-setup-windows-amd64.exe`.
+2. Double-click to run, or run from Command Prompt/PowerShell:
+   ```powershell
+   .\agent-setup-windows-amd64.exe
+   ```
