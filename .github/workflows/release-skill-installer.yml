@@ -41,7 +41,7 @@ jobs:
         run: |
           mkdir -p installer/dist
           cd installer
-          GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o dist/agent-setup-${{ matrix.asset }}${{ matrix.ext }} ./cmd/agent-setup
+          GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -ldflags "-X main.version=${{ github.ref_name }}" -o dist/agent-setup-${{ matrix.asset }}${{ matrix.ext }} ./cmd/agent-setup
 
       - name: Release
         uses: softprops/action-gh-release@v2
