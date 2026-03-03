@@ -21,12 +21,15 @@ const (
 // defaultMcpKey is the default JSON key used in the config file for MCP servers.
 const defaultMcpKey = "mcpServers"
 
+type mcpBuilderFunc func(command string, args []string, env map[string]string, envOverrides map[string]string) map[string]interface{}
+
 // baseAdapter provides the common installation logic shared by all providers.
 type baseAdapter struct {
 	prov         provider.Provider
 	ruleFmt      ruleStrategy
 	envOverrides map[string]string
 	mcpKey       string
+	mcpBuilder   mcpBuilderFunc
 }
 
 func (b *baseAdapter) getMcpKey() string {
@@ -34,6 +37,13 @@ func (b *baseAdapter) getMcpKey() string {
 		return b.mcpKey
 	}
 	return defaultMcpKey
+}
+
+func (b *baseAdapter) buildMCP(command string, args []string, env map[string]string) map[string]interface{} {
+	if b.mcpBuilder != nil {
+		return b.mcpBuilder(command, args, env, b.envOverrides)
+	}
+	return buildMCPEntry(command, args, env, b.envOverrides)
 }
 
 func (b *baseAdapter) ProviderID() string { return b.prov.ID }
@@ -90,7 +100,7 @@ func (b *baseAdapter) InstallMCP(mcp resource.MCPServer, scope provider.Scope, p
 
 	servers := make(map[string]interface{}, len(mcp.Servers))
 	for _, srv := range mcp.Servers {
-		servers[srv.ID] = buildMCPEntry(srv.Command, srv.Args, srv.Env, b.envOverrides)
+		servers[srv.ID] = b.buildMCP(srv.Command, srv.Args, srv.Env)
 	}
 	res.Err = mergeJSONMCPServers(destPath, b.getMcpKey(), servers)
 	return res
