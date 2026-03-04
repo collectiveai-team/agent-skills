@@ -8,7 +8,6 @@ import (
 	"strings"
 
 	"installer/internal/adapter"
-	"installer/internal/fs"
 	"installer/internal/installer"
 	"installer/internal/provider"
 	"installer/internal/resource"
@@ -546,10 +545,6 @@ func (m Model) updateSelectScope(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.selectedScope = provider.ScopeProject
 		}
 	case keyEnter:
-		if m.selectedScope == provider.ScopeProject && !fs.IsGitRepo(m.projectRoot) {
-			m.warning = "No .git directory found. Falling back to global."
-			m.selectedScope = provider.ScopeGlobal
-		}
 		// Check if any MCP servers are selected — go to configure screen
 		if m.hasSelectedMCPServers() {
 			m.buildMCPEnvConfig()

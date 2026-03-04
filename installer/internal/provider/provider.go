@@ -78,26 +78,34 @@ func (p Provider) ResolvePath(resType resource.Type, scope Scope, projectRoot, h
 	var rel string
 	switch resType {
 	case resource.TypeSkill:
-		if scope == ScopeProject && p.Capabilities.HasProjectSkills {
-			rel = p.Paths.SkillsProject
+		if scope == ScopeProject {
+			if p.Capabilities.HasProjectSkills {
+				rel = p.Paths.SkillsProject
+			}
 		} else if p.Capabilities.HasGlobalSkills {
 			return filepath.Join(homeDir, p.Paths.SkillsGlobal), true
 		}
 	case resource.TypeRule:
-		if scope == ScopeProject && p.Capabilities.HasProjectRules {
-			rel = p.Paths.RulesProject
+		if scope == ScopeProject {
+			if p.Capabilities.HasProjectRules {
+				rel = p.Paths.RulesProject
+			}
 		} else if p.Capabilities.HasGlobalRules {
 			return filepath.Join(homeDir, p.Paths.RulesGlobal), true
 		}
 	case resource.TypeMCPServer:
-		if scope == ScopeProject && p.Capabilities.HasProjectMCP {
-			rel = p.Paths.MCPProject
+		if scope == ScopeProject {
+			if p.Capabilities.HasProjectMCP {
+				rel = p.Paths.MCPProject
+			}
 		} else if p.Capabilities.HasGlobalMCP {
 			return filepath.Join(homeDir, p.Paths.MCPGlobal), true
 		}
 	case resource.TypeSubagent:
-		if scope == ScopeProject && p.Capabilities.HasProjectSubagents {
-			rel = p.Paths.SubagentsProject
+		if scope == ScopeProject {
+			if p.Capabilities.HasProjectSubagents {
+				rel = p.Paths.SubagentsProject
+			}
 		} else if p.Capabilities.HasGlobalSubagents {
 			return filepath.Join(homeDir, p.Paths.SubagentsGlobal), true
 		}
