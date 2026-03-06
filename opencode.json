@@ -3,7 +3,9 @@
   "permission": {
     "skill": {
       "skill-creator": "ask",
-      "documentation-writing": "ask"
+      "documentation-writing": "ask",
+      "rule-generation": "allow",
+      "mermaid-diagrams": "allow"
     }
   }
 }
