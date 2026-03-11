@@ -1,0 +1,10 @@
+name: github-mcp
+description: GitHub MCP server for repository management
+version: 0.1.0
+servers:
+  - id: github
+    name: GitHub
+    command: npx
+    args: ["-y", "@modelcontextprotocol/server-github@latest"]
+    env:
+      GITHUB_PERSONAL_ACCESS_TOKEN: "${GITHUB_PERSONAL_ACCESS_TOKEN}"

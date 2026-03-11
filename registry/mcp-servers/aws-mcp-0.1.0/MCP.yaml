@@ -1,0 +1,25 @@
+name: aws-mcp
+description: AWS MCP server suite for infrastructure management
+version: 0.1.0
+servers:
+  - id: aws-iac
+    name: AWS Infrastructure as Code
+    command: uvx
+    args: ["awslabs.mcp-server-iac@latest"]
+    env:
+      AWS_PROFILE: "${AWS_PROFILE:-default}"
+      AWS_REGION: "${AWS_REGION:-us-east-1}"
+  - id: aws-cfn
+    name: AWS CloudFormation
+    command: uvx
+    args: ["awslabs.mcp-server-cfn@latest"]
+    env:
+      AWS_PROFILE: "${AWS_PROFILE:-default}"
+      AWS_REGION: "${AWS_REGION:-us-east-1}"
+  - id: aws-cost
+    name: AWS Cost Explorer
+    command: uvx
+    args: ["awslabs.cost-analysis-mcp-server@latest"]
+    env:
+      AWS_PROFILE: "${AWS_PROFILE:-default}"
+      AWS_REGION: "${AWS_REGION:-us-east-1}"

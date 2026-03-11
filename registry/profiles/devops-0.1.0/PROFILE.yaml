@@ -1,0 +1,20 @@
+name: devops
+description: DevOps profile for AWS/GCP infrastructure teams
+version: 0.1.0
+skills:
+  - k8s-specialist-0.1.0
+rules:
+  - aws-well-architected-0.1.0
+  - k8s-best-practices-0.1.0
+  - terraform-conventions-0.1.0
+  - security-scanning-0.1.0
+mcp_servers:
+  - aws-mcp-0.1.0
+  - gcp-mcp-0.1.0
+  - terraform-mcp-0.1.0
+  - github-mcp-0.1.0
+  - k8s-mcp-0.1.0
+subagents:
+  - infra-validation-0.1.0
+  - security-review-0.1.0
+  - cost-analysis-0.1.0

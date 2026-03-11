@@ -1,0 +1,10 @@
+name: k8s-mcp
+description: Kubernetes MCP server for cluster management
+version: 0.1.0
+servers:
+  - id: kubernetes
+    name: Kubernetes
+    command: npx
+    args: ["-y", "@modelcontextprotocol/server-kubernetes@latest"]
+    env:
+      KUBECONFIG: "${KUBECONFIG:-~/.kube/config}"
